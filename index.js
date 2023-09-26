@@ -406,7 +406,18 @@
 
 
 
-let arr = ['4red', '1000green', '3brown', '32yellow'];
+let arr = [43,12,234,3245,345,643,6,43];
+
+function printValues(value){
+    console.log(value * 10);
+}
+arr.forEach(printValues)
+
+
+// for(let numbers of arr){
+//     console.log(numbers);
+// }
+
 
 
 
