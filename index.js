@@ -406,17 +406,151 @@
 
 
 
-let arr = [43,12,234,3245,345,643,6,43];
+// let arr = [43,12,234];
 
-function printValues(value){
-    console.log(value * 10);
-}
-arr.forEach(printValues)
+// arr.forEach((val)=>{
+    
+// })
+
+// console.log(arr);
+
+// let ans = arr.map((val, index, arr)=>{
+//     console.log("val", val);
+//     console.log("index", index);
+//     console.log("arr", arr);
+//     return val * 10;
+// });
+
+// console.log(ans);
+// console.log(arr);
 
 
 // for(let numbers of arr){
 //     console.log(numbers);
 // }
+
+
+// let arr = [1,6,32,4,54,32,43,21];
+
+// let ans = arr.reduce((val1,val2)=>{
+//     return (val1+val2);
+// })
+
+// console.log(ans);
+
+// let ans = arr.filter((val, index, arr)=>{
+//     // console.log("val", val);
+//     // console.log("index", index);
+//     // console.log("arr", arr);
+//     return (val > 10 && val % 2 == 0);
+// });
+// console.log(ans);
+
+
+// let arr=[5,3,9,10,2];
+// let ans=arr.filter((val)=>{
+//     return val%2==0;
+// } )
+// let square=ans.map((val)=>{
+//     return val*val;
+// })
+
+// let sum=square.reduce((val1,val2)=>{
+//     return val1+val2;
+// })
+
+// console.log(ans);
+// console.log(square);
+// console.log(sum);
+
+
+
+
+
+
+// function repeatString(str, num){
+//     if(num < 0){
+//         return "";
+//     };
+
+//     let repeatedString1 = "";
+//     for(let i=0;i<num;i++){
+//         repeatedString1 = repeatedString1 + str;
+//     }
+//     return repeatedString1;
+// }
+
+// let ans = repeatString("akhil",4);
+// console.log(ans);
+
+
+// function largest(arr){
+//     let result = [];
+//     for(let i=0; i<arr.length;i++){
+//         let largestNumberinRow = arr[i][0];
+//         for(let j=1;j<arr[i].length;j++){
+//             if(arr[i][j] > largestNumberinRow){
+//                 largestNumberinRow = arr[i][j];
+//             }
+//         }
+//         result.push(largestNumberinRow);
+//     }
+//     return result;
+// }
+// let arr = [[1,2,3,4],[4,5,6,7],[1,7,8,9,10],[43,32,34,345,54]];
+// console.log(largest(arr));
+
+
+
+
+
+// let num = true;
+// let ans = String(num);
+// console.log(typeof ans);
+
+
+
+
+function falyvalue(arr){
+    return arr.filter(Boolean);
+};
+let arr = ["",7,undefined, 83249238,"ksjdhf", NaN];
+console.log(falyvalue(arr));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
