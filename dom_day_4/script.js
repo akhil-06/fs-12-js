@@ -29,6 +29,8 @@
 
 // console.log(parent);
 
+let h1 = window.document.getElementById("head1");
+console.log(h1);
 
 function filterList(){
     let gender = document.querySelector('input[name="gender"]:checked').value;
