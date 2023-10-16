@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        width: 800px;
+      }
+
+      .left-box,
+      .right-box {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      .product-list,
+      .cart {
+        list-style: none;
+        padding: 0;
+      }
+
+      .product-item,
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .product-name {
+        flex: 1;
+      }
+
+      .product-price {
+        margin-right: 10px;
+      }
+
+      .cart-total {
+        font-weight: bold;
+      }
+
+      .add-product {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-box">
+        <h2>Product List</h2>
+        <ul class="product-list" id="productList">
+          <li class="product-item" data-id="1">
+            <span class="product-name">Product-1</span>
+            <span class="product-price">$100</span>
+            <button class="add-button">+</button>
+          </li>
+          <li class="product-item" data-id="2">
+            <span class="product-name">Product-2</span>
+            <span class="product-price">$200</span>
+            <button class="add-button">+</button>
+          </li>
+          <li class="product-item" data-id="3">
+            <span class="product-name">Product-3</span>
+            <span class="product-price">$300</span>
+            <button class="add-button">+</button>
+          </li>
+        </ul>
+        <div class="add-product">
+          <button onclick="addProduct()">Add New Product</button>
+        </div>
+      </div>
+      <div class="right-box">
+        <h2>Shopping Cart</h2>
+        <ul class="cart" id="cart">
+          <p id="cartEmptyMessage">No Product added to the cart</p>
+        </ul>
+        <p class="cart-total" id="cartTotal">Total Price: $0</p>
+      </div>
+    </div>
+  </body>
+</html>
