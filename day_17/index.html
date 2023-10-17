@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Callback Hell</title>
+  </head>
+
+  <body></body>
+  <script>
+
+    let selectedpizza = "onion Pizza";
+
+    function choosePizza() {
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          console.log(`step 1. Choose ${selectedpizza}`);
+          res(selectedpizza);
+        }, 1000);
+      });
+    }
+
+    function placeOrder(pizza) {
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          let orderStatus = "Order Placed";
+          console.log(`step 2. ${orderStatus}`);
+          res(orderStatus);
+        }, 1500);
+      });
+    }
+
+    function recievePizza(orderStatus) {
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          console.log(`step 3. Recieved ${orderStatus}`);
+          res(`enjoy the ${selectedpizza}`);
+        }, 2000);
+      });
+    }
+
+
+    choosePizza()
+    .then((selectedpizza)=>{
+        return placeOrder(selectedpizza);
+    })
+    .then((orderStatus)=>{
+        return recievePizza(orderStatus);
+    })
+    .then((enjoyPizza)=>{
+        console.log(enjoyPizza);
+    })
+
+
+
+    // choosePizza((selectedpizza) => {
+    //   placeOrder(selectedpizza, (orderStatus, pizza) => {
+    //     recievePizza(orderStatus, pizza);
+    //   });
+    // });
+
+    // let loggedIn = false;
+
+    // function runPromise() {
+    //   let promise = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       if (loggedIn == true) {
+    //         resolve("challo ab ghumne chalte hai");
+    //       } else {
+    //         reject("sorry nhi hopaega");
+    //       }
+    //     }, 3000);
+    //   });
+    //   return promise;
+    // }
+    // // console.log(promise);
+    // runPromise()
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((data) => {
+    //     console.log(data);
+    //   });
+  </script>
+</html>
