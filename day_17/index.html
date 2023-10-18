@@ -8,52 +8,145 @@
     <title>Callback Hell</title>
   </head>
 
-  <body></body>
+  <body>
+    <!-- <button>Fetch Image</button>
+    <img src="" alt=""> -->
+    <div id="div1"></div>
+  </body>
   <script>
+    // let add = async(x, y)=> {
+    //   let sum = x+y;
+    //   return sum;
+    // }
 
-    let selectedpizza = "onion Pizza";
+    // let substract = async (x, y)=> {
+    //   let sum = x-y;
+    //   return sum;
+    // }
 
-    function choosePizza() {
-      return new Promise((res, rej) => {
-        setTimeout(() => {
-          console.log(`step 1. Choose ${selectedpizza}`);
-          res(selectedpizza);
-        }, 1000);
-      });
+    // let runOperations = async ()=>{
+    //   let added = await add(2,2);
+    //   let substracted = await substract(added, 3);
+    //   let newAdded = await add(substracted, 5);
+    //   let result  = await newAdded * 2;
+    //   console.log(result);
+    // }
+    // runOperations()
+
+
+    
+    function append(data){
+      console.log(data);
+      let container = document.getElementById("div1");
+      data.forEach(function (el){
+        let img = document.createElement("img");
+        img.src = el.image;
+        let p = document.createElement("p");
+        p.innerText = el.description;
+
+        container.append(img, p)
+      })
     }
 
-    function placeOrder(pizza) {
-      return new Promise((res, rej) => {
-        setTimeout(() => {
-          let orderStatus = "Order Placed";
-          console.log(`step 2. ${orderStatus}`);
-          res(orderStatus);
-        }, 1500);
-      });
+    async function fetchDogImage() {
+      try {
+        let fetchData = await fetch("https://fakestoreapi.com/products/");
+        let data = await fetchData.json();
+        // console.log(data);
+        append(data);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    fetchDogImage();
 
-    function recievePizza(orderStatus) {
-      return new Promise((res, rej) => {
-        setTimeout(() => {
-          console.log(`step 3. Recieved ${orderStatus}`);
-          res(`enjoy the ${selectedpizza}`);
-        }, 2000);
-      });
-    }
+    // fetch("https://dog.ceo/api/breeds/image/random")
+    // .then(function(res){
+    //   return res.json()
+    // })
+    // .then(function (res){
+    //   console.log(res);
+    // })
 
+    // console.log("jsadf");
+    // let add = function(x, y){
+    //   return new Promise((resolve, reject)=>{
+    //     let sum = x + y;
+    //     resolve(sum);
+    //   })
+    // }
 
-    choosePizza()
-    .then((selectedpizza)=>{
-        return placeOrder(selectedpizza);
-    })
-    .then((orderStatus)=>{
-        return recievePizza(orderStatus);
-    })
-    .then((enjoyPizza)=>{
-        console.log(enjoyPizza);
-    })
+    // let subtract = function(x, y){
+    //   return new Promise((resolve, reject)=>{
+    //     let sum = x - y;
+    //     resolve(sum);
+    //   })
+    // }
 
+    // (a)=> a*2;
 
+    //start the chaining
+    // add(2,2)
+    // .then(added=>subtract(added,3))
+    // .then(subtracted=>add(subtracted, 5))
+    // .then(added=>added*2)
+    // .then(result=>console.log(result*2))
+    // .catch(err=>console.log(err))
+
+    // .then((added)=>{
+    //   // console.log(added);
+    //   return subtract(added, 3)
+    // })
+    // .then((added)=>{
+    //   // console.log(added);
+    //   return added * 2;
+    // })
+    // .then((added)=>{
+    //   // console.log(result);
+    //   console.log(ad * 6);
+    //   return added*6;
+    // })
+
+    // let selectedpizza = "onion Pizza";
+
+    // function choosePizza() {
+    //   return new Promise((res, rej) => {
+    //     setTimeout(() => {
+    //       console.log(`step 1. Choose ${selectedpizza}`);
+    //       res(selectedpizza);
+    //     }, 1000);
+    //   });
+    // }
+
+    // function placeOrder(pizza) {
+    //   return new Promise((res, rej) => {
+    //     setTimeout(() => {
+    //       let orderStatus = "Order Placed";
+    //       console.log(`step 2. ${orderStatus}`);
+    //       res(orderStatus);
+    //     }, 1500);
+    //   });
+    // }
+
+    // function recievePizza(orderStatus) {
+    //   return new Promise((res, rej) => {
+    //     setTimeout(() => {
+    //       console.log(`step 3. Recieved ${orderStatus}`);
+    //       res(`enjoy the ${selectedpizza}`);
+    //     }, 2000);
+    //   });
+    // }
+
+    // choosePizza()
+    //   .then((selectedpizza) => {
+    //     return placeOrder(selectedpizza);
+    //   })
+    //   .then((orderStatus) => {
+    //     return recievePizza(orderStatus);
+    //   })
+    //   .then((enjoyPizza) => {
+    //     console.log(enjoyPizza);
+    //   });
 
     // choosePizza((selectedpizza) => {
     //   placeOrder(selectedpizza, (orderStatus, pizza) => {

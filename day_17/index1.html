@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MVC with DOM Manipulation</title>
+</head>
+<body>
+    <div id="app">
+        <!-- This is the View: HTML template -->
+        <h1 id="title"></h1>
+        <button id="updateButton">Update Title</button>
+    </div>
+
+    <script>
+        // Model: Represents the application's data
+        var model = {
+            title: "Hello, MVC!",
+        };
+
+        // View: DOM manipulation to render the UI
+        function updateView() {
+            var titleElement = document.getElementById("title");
+            titleElement.textContent = model.title;
+        }
+
+        // Controller: Handle user interactions
+        var updateButton = document.getElementById("updateButton");
+        updateButton.addEventListener("click", function() {
+            // Modify the Model
+            model.title = "Updated Title";
+            // Update the View
+            updateView();
+        });
+
+        // Initial rendering
+        updateView();
+    </script>
+</body>
+</html>
