@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Lodash Library</h1>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <script>
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      _.forEach(arr, function (value) {
+        console.log(value);
+      });
+
+      function square(n) {
+        return n * n;
+      }
+
+      let squares = _.map(arr, square);
+      console.log(squares);
+    </script>
+  </body>
+</html>

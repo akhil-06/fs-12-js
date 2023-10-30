@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime JS</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        border-radius: 50%;
+      }
+      .div1 {
+  margin: 24px;
+  width: 50px;
+  height: 50px;
+  background: #f50057;
+  animation: box 1s ease infinite;
+}
+
+@keyframes box {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="div1"></div>
+    <h1 id="head1"></h1>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+    <script>
+      const ball = document.getElementById("ball");
+      const head = document.getElementById()
+
+
+
+      anime({
+          targets:ball,
+          translateX: [100, 250],
+          duration:4000,
+          loop:true,
+          easing:"easeInOutSine",
+          direction:"alternate"
+      })
+
+
+
+
+
+
+
+    //   anime({
+    //     targets: ".line-drawing-demo .lines path",
+    //     strokeDashoffset: [anime.setDashoffset, 0],
+    //     easing: "easeInOutSine",
+    //     duration: 1500,
+    //     delay: function (el, i) {
+    //       return i * 250;
+    //     },
+    //     direction: "alternate",
+    //     loop: true,
+    //   });
+
+      // anime({
+      //     targets:ball,
+      //     translateY:'150px',
+      //     duration:1000,
+      //     loop:true,
+      //     easing:"easeInOutSine"
+      // })
+    </script>
+  </body>
+</html>

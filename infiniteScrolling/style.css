@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Sedgwick+Ave+Display&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Sedgwick Ave Display', cursive;
+    background-color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 45px;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+
+.img-container {
+    margin: 10px 30%;
+}
+
+.img-container img {
+    width: 100%;
+    margin-top: 5px;
+}
