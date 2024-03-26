@@ -57,3 +57,96 @@
     </script>
   </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Chart</title>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chart-container {
+            width: 800px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="covid-chart"></canvas>
+    </div>
+
+    <script>
+        // Chart initialization
+        const ctx = document.getElementById('covid-chart').getContext('2d');
+        const covidChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'COVID-19 Cases',
+                    data: [],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Fill color
+                    borderColor: 'rgba(54, 162, 235, 1)', // Line color
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'MMM D'
+                            }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Cases'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        });
+
+        // Fetch COVID-19 data from API
+        async function fetchCovidData() {
+            try {
+                const response = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=30');
+                const data = await response.json();
+
+                // Extract dates and cases from the API response
+                const dates = Object.keys(data.cases).map(date => new Date(date));
+                const cases = Object.values(data.cases);
+
+                // Update chart with fetched data
+                covidChart.data.labels = dates;
+                covidChart.data.datasets[0].data = cases;
+                covidChart.update();
+            } catch (error) {
+                console.error('Error fetching COVID-19 data:', error);
+            }
+        }
+
+        // Fetch data when the page loads
+        fetchCovidData();
+    </script>
+</body>
+</html>
